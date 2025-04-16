@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 # Constants
 SAMPLE_RATE = 16000
 CHANNELS = 1
-BUFFER_DURATION = 5  # seconds
+BUFFER_DURATION = 3  # seconds
 BUFFER_SIZE = SAMPLE_RATE * CHANNELS * BUFFER_DURATION
 SAMPLE_WIDTH = 2  # 16-bit = 2 bytes
 MAX_INT16 = 32768.0
@@ -31,7 +31,7 @@ class TranscriptionServer:
         try:
             logger.info("Initializing Whisper model...")
             self.model = WhisperModel(
-                "distil-medium.en",
+                "small.en",
                 compute_type="int8",
                 cpu_threads=8,
                 device="cpu"
